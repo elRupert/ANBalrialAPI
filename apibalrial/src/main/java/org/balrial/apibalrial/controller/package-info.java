@@ -1,1 +1,1 @@
-package org.balrial.controller;
+package org.balrial.apibalrial.controller;

@@ -61,6 +61,7 @@ public class TestController {
     @PostMapping("/objeto")
     public String replaceEmployee(@RequestBody TestDTO mock) {
 
+        System.out.println(mock.toString());
         return mock.toString();
     }
 }

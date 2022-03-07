@@ -24,5 +24,4 @@ public class TestDTO {
     private BigDecimal latitud;
     private BigDecimal longitud;
     private Boolean bool;
-
 }
