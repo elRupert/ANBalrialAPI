@@ -9,5 +9,8 @@ import lombok.ToString;
 @Setter
 @NoArgsConstructor
 @ToString
-public class ProyectoDTO {
+public class ProyTurnoDTO {
+
+    int id;
+
 }
