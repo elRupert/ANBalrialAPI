@@ -28,6 +28,9 @@ public class SelUsController {
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema") })
     @GetMapping("/usuarios/{id}")
+    /**
+     * Este endpoint consulta un id de usuario existente en la base de datos para saber toda la información de dicho usuario
+     */
     public Usuario one(@PathVariable int id) {
         UsuarioDAO usuarioDAO = new UsuarioORMDAO();
         Usuario usuario = usuarioDAO.consultar(id);
