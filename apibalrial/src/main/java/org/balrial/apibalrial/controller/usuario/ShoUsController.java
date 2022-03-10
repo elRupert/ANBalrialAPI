@@ -34,7 +34,6 @@ public class ShoUsController {
     @GetMapping("/usuarios")
     public List<Usuario> one() {
         UsuarioDAO usuarioDAO = new UsuarioORMDAO();
-
         return usuarioDAO.listar();
     }
 
