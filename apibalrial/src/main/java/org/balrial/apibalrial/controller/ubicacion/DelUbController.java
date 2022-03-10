@@ -7,10 +7,7 @@ import io.swagger.annotations.ApiResponses;
 import org.balrial.dao.ubicacion.UbicacionDAO;
 import org.balrial.dao.ubicacion.UbicacionORMDAO;
 import org.balrial.factory.DAOFactory;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Método para eliminar una ubicación
@@ -32,7 +29,7 @@ public class DelUbController {
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
 
 
-    @GetMapping("/ubicaciones/{id}")
+    @DeleteMapping("/ubicaciones/{id}")
     public void one(@PathVariable int id) {
         UbicacionDAO ubicacionDAO = new UbicacionORMDAO();
         ubicacionDAO.eliminar(id);
