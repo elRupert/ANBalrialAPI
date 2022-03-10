@@ -7,10 +7,7 @@ import org.balrial.dao.usuario.UsuarioDAO;
 import org.balrial.dao.usuario.UsuarioORMDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.Usuario;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
@@ -31,7 +28,7 @@ public class DelUsController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema") })
-    @GetMapping("/usuarios/{id}")
+    @DeleteMapping("/usuarios/{id}")
     public void one(@PathVariable int id) throws SQLException {
         UsuarioDAO usuarioDAO =new UsuarioORMDAO();
 
