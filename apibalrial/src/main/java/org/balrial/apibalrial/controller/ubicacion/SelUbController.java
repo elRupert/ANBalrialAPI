@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class RecUbController {
+public class SelUbController {
 
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private UbicacionDAO ubicacionDAO = factory.getUbicacionDAO();
