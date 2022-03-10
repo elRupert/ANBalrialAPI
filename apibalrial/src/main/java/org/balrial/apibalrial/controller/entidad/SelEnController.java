@@ -7,6 +7,7 @@ import org.balrial.dao.entidad.EntidadDAO;
 import org.balrial.dao.entidad.EntidadORMDAO;
 import org.balrial.dao.ubicacion.UbicacionDAO;
 import org.balrial.factory.DAOFactory;
+import org.balrial.model.Entidad;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,9 +34,10 @@ public class SelEnController {
 
 
     @GetMapping("/entidades/{id}")
-    public void one(@PathVariable int id) {
+    public String one(@PathVariable int id) {
         EntidadDAO entidadDAO = new EntidadORMDAO();
-        entidadDAO.consultar(id);
+         Entidad entidad = entidadDAO.consultar(id);
+        return entidad.toString();
 
     }
 }
