@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 /**
  * @author Diego De Arriba y Martin Blanco
  * Método para eliminar una ubicacion
+ * Método para eliminar  ubicaciones
  */
 @RestController
 @RequestMapping("/api")
