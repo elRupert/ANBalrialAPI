@@ -6,6 +6,7 @@ import io.swagger.annotations.ApiResponses;
 import org.balrial.dao.ubicacion.UbicacionDAO;
 import org.balrial.dao.ubicacion.UbicacionORMDAO;
 import org.balrial.factory.DAOFactory;
+import org.balrial.model.Ubicacion;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -34,9 +35,11 @@ public class RecUbController {
 
 
     @GetMapping("/ubicaciones/{idUbicacion}")
-    public void one(@PathVariable int idUbicacion) {
+    public Ubicacion one(@PathVariable int idUbicacion) {
         UbicacionDAO ubicacionDAO = new UbicacionORMDAO();
-        ubicacionDAO.consultar(idUbicacion);
+        Ubicacion ubicacion = ubicacionDAO.consultar(idUbicacion);
+
+        return ubicacion;
 
     }
 
