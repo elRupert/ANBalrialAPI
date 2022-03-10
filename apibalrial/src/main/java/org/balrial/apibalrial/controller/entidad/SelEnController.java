@@ -39,5 +39,6 @@ public class SelEnController {
          Entidad entidad = entidadDAO.consultar(id);
         return entidad.toString();
 
+
     }
 }
