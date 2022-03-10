@@ -1,4 +1,4 @@
 /**
- * Paquete para el endpoint para eliminar un ubicación
+ * Paquete para los endpoints de las ubicaciones
  */
 package org.balrial.apibalrial.controller.ubicacion;
