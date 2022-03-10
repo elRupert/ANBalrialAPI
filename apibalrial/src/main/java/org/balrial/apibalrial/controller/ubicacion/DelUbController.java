@@ -10,7 +10,7 @@ import org.balrial.factory.DAOFactory;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * Método para eliminar una ubicación
+ * Método para eliminar  ubicaciones
  */
 @RestController
 @RequestMapping("/api")
