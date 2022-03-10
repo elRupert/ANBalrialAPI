@@ -13,6 +13,7 @@ import java.text.ParseException;
 // Para ver la documentación de swagger debemos acceder a /swagger-ui/
 @RestController
 @RequestMapping("/api/test")
+@CrossOrigin("*")
 public class TestController {
 
     @Autowired
@@ -30,6 +31,7 @@ public class TestController {
     @GetMapping(value = "/campos", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public TestDTO mock() throws ParseException {
 
+        System.out.println("Entrado...");
         return testService.mockTest();
     }
 
