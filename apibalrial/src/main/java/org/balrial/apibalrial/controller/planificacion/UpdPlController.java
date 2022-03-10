@@ -24,12 +24,10 @@ public class UpdPlController {
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema") })
     @PostMapping("/planificaciones")
-    public String replaceEmployee(@RequestBody Planificacion planificacion) {
+    public void  replaceEmployee(@RequestBody Planificacion planificacion) {
 
-        
+        PlanificacionDAO planificacionDAO=new PlanificacionORMDAO();
+        planificacionDAO.actualizar(planificacion);
 
-
-
-        return planificacion.toString();
     }
 }
