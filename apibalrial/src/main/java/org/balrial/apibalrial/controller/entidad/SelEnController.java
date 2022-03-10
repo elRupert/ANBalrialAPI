@@ -37,5 +37,6 @@ public class SelEnController {
         EntidadDAO entidadDAO = new EntidadORMDAO();
         entidadDAO.consultar(id);
 
+
     }
 }
