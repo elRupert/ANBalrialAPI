@@ -34,11 +34,8 @@ public class SelEnController {
 
 
     @GetMapping("/entidades/{id}")
-    public String one(@PathVariable int id) {
+    public Entidad one(@PathVariable int id) {
         EntidadDAO entidadDAO = new EntidadORMDAO();
-         Entidad entidad = entidadDAO.consultar(id);
-        return entidad.toString();
-
-
+        return entidadDAO.consultar(id);
     }
 }
