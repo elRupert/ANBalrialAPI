@@ -13,9 +13,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+/** 
+ *
+ */
 public class GenerarPlanesPl {
 
-    @ApiOperation(value = "Endpoint para insertar una planificación en un proyecto")
+    @ApiOperation(value = "Endpoint que genera las planificaciones de un proyecto en base a como se especifica en la documentación")
     @ApiResponses(value = {
     @ApiResponse(code = 200, message = "La solicitud ha tenido éxito."),
     @ApiResponse(code = 400, message = "No se pudo interpretar la solicitud debido a una sintaxis inválida."),
