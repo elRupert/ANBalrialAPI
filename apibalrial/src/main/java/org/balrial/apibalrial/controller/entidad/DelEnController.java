@@ -1,26 +1,23 @@
-package org.balrial.apibalrial.controller.ubicacion;
-
+package org.balrial.apibalrial.controller.entidad;
 
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.balrial.dao.entidad.EntidadDAO;
 import org.balrial.dao.entidad.EntidadORMDAO;
-import org.balrial.dao.ubicacion.UbicacionDAO;
-import org.balrial.dao.ubicacion.UbicacionORMDAO;
+
 import org.balrial.factory.DAOFactory;
-import org.balrial.model.Ubicacion;
 import org.springframework.web.bind.annotation.*;
 
 /**
- * @author Diego De Arriba y Martin Blanco
- * Método para eliminar una ubicacion
+ * @author Diego de Arriba
+ * metodo para eliminar entidades
  */
 @RestController
 @RequestMapping("/api")
-public class DelUbController {
+public class DelEnController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
-    private UbicacionDAO ubicacionDAO = factory.getUbicacionDAO();
+    private EntidadDAO entidadDAO = factory.getEntidadDAO();
 
     @ApiOperation(value = "Endpoint para probar a pasar un valor en el path"
             , notes = "En este endpoint enviamos un valor en el path de la petición el cual será procesado por la API y nos lo devolverá en modo texto.")
@@ -33,12 +30,13 @@ public class DelUbController {
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
 
 
-    @DeleteMapping("/ubicaciones/{id}")
+    @DeleteMapping("/entidades/{id}")
     public void one(@PathVariable int id) {
-        UbicacionDAO ubicacionDAO = new UbicacionORMDAO();
-        ubicacionDAO.consultar(id);
-        ubicacionDAO.eliminar(id);
+        EntidadDAO entidadDAO = new EntidadORMDAO();
+        entidadDAO.consultar(id);
+        entidadDAO.eliminar(id);
 
 
     }
+
 }
