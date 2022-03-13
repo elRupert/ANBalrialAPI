@@ -4,10 +4,14 @@ import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
 import org.balrial.dao.entidad.EntidadDAO;
-import org.balrial.dao.entidad.EntidadORMDAO;
-
 import org.balrial.factory.DAOFactory;
-import org.springframework.web.bind.annotation.*;
+import org.balrial.model.Entidad;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  * @author Diego de Arriba
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api")
 public class DelEnController {
+
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private EntidadDAO entidadDAO = factory.getEntidadDAO();
 
@@ -31,11 +36,16 @@ public class DelEnController {
 
 
     @DeleteMapping("/entidades/{id}")
-    public void one(@PathVariable int id) {
-        EntidadDAO entidadDAO = new EntidadORMDAO();
-        entidadDAO.consultar(id);
-        entidadDAO.eliminar(id);
+    public void eliminarEntidades(@PathVariable int id) {
 
+        Entidad entidad = entidadDAO.consultar(id);
+
+        if (entidad == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se ha encontrado el recuso solicitado");
+        } else {
+            entidadDAO.eliminar(id);
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
 
     }
 

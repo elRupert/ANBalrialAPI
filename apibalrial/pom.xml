@@ -87,7 +87,12 @@
 			<artifactId>springfox-swagger-ui</artifactId>
 			<version>3.0.0</version>
 		</dependency>
-
+		<!-- BALRIAL -->
+		<dependency>
+			<groupId>org.balrial</groupId>
+			<artifactId>balrial</artifactId>
+			<version>1.0</version>
+		</dependency>
 	</dependencies>
 
 	<build>

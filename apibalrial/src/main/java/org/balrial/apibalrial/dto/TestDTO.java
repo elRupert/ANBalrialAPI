@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -14,7 +15,7 @@ import java.time.LocalTime;
 @Setter
 @NoArgsConstructor
 @ToString
-public class TestDTO {
+public class TestDTO implements Serializable {
 
     private String string;
     private Integer integer;

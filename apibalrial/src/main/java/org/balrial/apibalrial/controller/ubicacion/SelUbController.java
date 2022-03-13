@@ -3,14 +3,17 @@ package org.balrial.apibalrial.controller.ubicacion;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
+import org.balrial.apibalrial.dto.UbicacionDTO;
+import org.balrial.apibalrial.dto.assembler.UbicacionAssembler;
 import org.balrial.dao.ubicacion.UbicacionDAO;
-import org.balrial.dao.ubicacion.UbicacionORMDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.Ubicacion;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  * Método para recuperar una ubicación
@@ -18,7 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
-public class RecUbController {
+public class SelUbController {
 
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private UbicacionDAO ubicacionDAO = factory.getUbicacionDAO();
@@ -35,12 +38,17 @@ public class RecUbController {
 
 
     @GetMapping("/ubicaciones/{idUbicacion}")
-    public Ubicacion one(@PathVariable int idUbicacion) {
-        UbicacionDAO ubicacionDAO = new UbicacionORMDAO();
+    public UbicacionDTO consultarUbicacion(@PathVariable int idUbicacion) {
+
         Ubicacion ubicacion = ubicacionDAO.consultar(idUbicacion);
 
-        return ubicacion;
+        if (ubicacion != null) {
+            UbicacionDTO ubicacionDTO = UbicacionAssembler.pasearADTO(ubicacion);
 
+            return ubicacionDTO;
+        } else {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se ha encontrado el recuso solicitado");
+        }
     }
 
 }

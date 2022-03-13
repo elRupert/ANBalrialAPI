@@ -4,13 +4,15 @@ package org.balrial.apibalrial.controller.ubicacion;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
 import io.swagger.annotations.ApiResponses;
-import org.balrial.dao.entidad.EntidadDAO;
-import org.balrial.dao.entidad.EntidadORMDAO;
 import org.balrial.dao.ubicacion.UbicacionDAO;
-import org.balrial.dao.ubicacion.UbicacionORMDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.Ubicacion;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 /**
  * @author Diego De Arriba y Martin Blanco
@@ -35,11 +37,15 @@ public class DelUbController {
 
 
     @DeleteMapping("/ubicaciones/{id}")
-    public void one(@PathVariable int id) {
-        UbicacionDAO ubicacionDAO = new UbicacionORMDAO();
-        ubicacionDAO.consultar(id);
-        ubicacionDAO.eliminar(id);
+    public void eliminarUbicacion(@PathVariable int id) {
 
+        Ubicacion ubicacion = ubicacionDAO.consultar(id);
 
+        if (ubicacion == null) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se ha encontrado el recuso solicitado");
+        } else {
+            ubicacionDAO.eliminar(id);
+            throw new ResponseStatusException(HttpStatus.NO_CONTENT);
+        }
     }
 }
