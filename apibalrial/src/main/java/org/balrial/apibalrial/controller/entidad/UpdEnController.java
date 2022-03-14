@@ -44,7 +44,7 @@ public class UpdEnController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se ha encontrado el recuso solicitado");
         } else {
             Entidad entidad = EntidadAssembler.pasearDesdeDTO(dto);
-            entidad.setNombre(entidadBD.getNombre());
+
             entidadDAO.actualizar(entidad);
 
             return EntidadAssembler.pasearADTO(entidad);

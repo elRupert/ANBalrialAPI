@@ -45,7 +45,7 @@ public class UpdUbController {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se ha encontrado el recuso solicitado");
         } else {
             Ubicacion ubicacion = UbicacionAssembler.pasearDesdeDTO(dto);
-            ubicacion.setNombre(ubicacionBD.getNombre());
+
             ubicacionDAO.actualizar(ubicacion);
 
             return UbicacionAssembler.pasearADTO(ubicacion);
