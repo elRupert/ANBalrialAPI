@@ -34,7 +34,7 @@ public class GenerarPlanesPl {
     @PostMapping("/planificaciones/{idProyecto}")
     public void generarPlanificacion(@PathVariable int idProyecto) {
         
-        System.out.println(proyectoDAO.consultar(1).toString());
+        System.out.println(proyectoDAO.consultar(idProyecto).toString());
 
         // Consulta para comprobar is el idEspecificado se corresponde con datos reales
         if (proyectoDAO.consultar(idProyecto) == null) {
