@@ -35,7 +35,7 @@ public class UpdEnController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @PutMapping("/usuarios")
+    @PutMapping("/entidades")
     public EntidadDTO actualizarEntidad(@RequestBody EntidadDTO dto) {
 
         Entidad entidadBD = entidadDAO.consultar(dto.getId());

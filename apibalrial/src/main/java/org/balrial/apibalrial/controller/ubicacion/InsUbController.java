@@ -39,7 +39,7 @@ public class InsUbController {
     public ResponseEntity<UbicacionDTO> insertarUbicacion(@RequestBody UbicacionDTO dto) throws Exception {
 
         Ubicacion ubicacion = UbicacionAssembler.pasearDesdeDTO(dto);
-        ubicacion.setNombre("");
+        ubicacion.setNombre(ubicacion.getNombre());
 
         ubicacionDAO.insertar(ubicacion);
 
