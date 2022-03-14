@@ -26,8 +26,8 @@ public class InsPrController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private ProyectoDAO proyectoDAO = factory.getProyectoDAO();
 
-    @ApiOperation(value = "Endpoint para probar un post de un objeto"
-            , notes = "En este endpoint enviamos un objeto para que sea procesado por la API la cual nos lo mostrará en modo texto.")
+    @ApiOperation(value = "Endpoint para insertar un nuevo proyecto"
+            , notes = "En este endpoint enviamos un json para insertar un nuevo proyecto")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "La solicitud ha tenido éxito."),
             @ApiResponse(code = 201, message = "La solicitud ha tenido éxito y se ha creado un nuevo recurso como resultado de ello."),
