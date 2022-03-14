@@ -41,7 +41,7 @@ public class SelUbPrController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @GetMapping("/usuarios/{id}")
+    @GetMapping("/ubicacionProyectos/{id}")
     /**
      * Este endpoint consulta un id de usuario existente en la base de datos para saber toda la información de dicho usuario
      */
