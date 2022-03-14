@@ -28,8 +28,8 @@ public class ShoUbController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private UbicacionDAO ubicacionDAO = factory.getUbicacionDAO();
 
-    @ApiOperation(value = "Endpoint para probar a pasar un valor en el path"
-            , notes = "En este endpoint enviamos un valor en el path de la petición el cual será procesado por la API y nos lo devolverá en modo texto.")
+    @ApiOperation(value = "Endpoint para listar ubicaciones"
+            , notes = "En este endpoint listamos todas las ubicaciones que hay en la api.")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "La solicitud ha tenido éxito."),
             @ApiResponse(code = 400, message = "No se pudo interpretar la solicitud debido a una sintaxis inválida."),
