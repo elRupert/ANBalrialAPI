@@ -25,7 +25,7 @@ public class ShoUsController {
     private final DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private final UsuarioDAO usuarioDAO = factory.getUsuarioDAO();
 
-    @ApiOperation(value = "Endpoint para seleccionar todos los usuarios")
+    @ApiOperation(value = "Endpoint para listar todos los proyectos")
     @ApiResponses(value = {
             @ApiResponse(code = 200, message = "La solicitud ha tenido éxito."),
             @ApiResponse(code = 400, message = "No se pudo interpretar la solicitud debido a una sintaxis inválida."),
