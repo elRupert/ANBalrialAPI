@@ -10,10 +10,12 @@ import org.balrial.dao.proyecto.ProyectoDAO;
 import org.balrial.dao.usuario.UsuarioDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.Proyecto;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -38,16 +40,20 @@ public class ShoPrController {
     @GetMapping(value = "/proyectos", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     public List<ProyectoDTO> listarProyectos () throws ParseException {
 
-        List<Proyecto>listaProyectos=proyectoDAO.listar();
-        List<ProyectoDTO> listaProyectosDTO=new ArrayList<>();
-        for(Proyecto proyecto:listaProyectos){
 
-            ProyectoDTO proyectoDTO= ProyectoAssembler.pasearADTO(proyecto);
-            listaProyectosDTO.add(proyectoDTO);
+        List<Proyecto> listaProyectos = proyectoDAO.listar();
+        List<ProyectoDTO> listaProyectosDTO = new ArrayList<>();
+        
 
-        }
+            for (Proyecto proyecto : listaProyectos) {
 
-        return listaProyectosDTO;
+                ProyectoDTO proyectoDTO = ProyectoAssembler.pasearADTO(proyecto);
+                listaProyectosDTO.add(proyectoDTO);
+
+            }
+
+            return listaProyectosDTO;
+
     }
 
 
