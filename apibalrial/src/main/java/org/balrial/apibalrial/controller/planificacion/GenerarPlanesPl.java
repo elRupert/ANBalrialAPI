@@ -32,15 +32,15 @@ public class GenerarPlanesPl {
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
     @PostMapping("/planificaciones/{idProyecto}")
-    public void generarPlanificacion(@PathVariable int idProyecto) {
+    public void generarPlanificacion(@PathVariable int idPlanificacion) {
         
-        System.out.println(proyectoDAO.consultar(1).toString());
+        System.out.println(proyectoDAO.consultar(idPlanificacion).toString());
 
         // Consulta para comprobar is el idEspecificado se corresponde con datos reales
-        if (proyectoDAO.consultar(idProyecto) == null) {
+        if (proyectoDAO.consultar(idPlanificacion) == null) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No se ha encontrado el recurso solicitado");
         } else {
-            proyectoDAO.generarPlanificaciones(idProyecto);
+            proyectoDAO.generarPlanificaciones(idPlanificacion);
         }
     }
 }
