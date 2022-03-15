@@ -13,9 +13,14 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+/**
+ * @author Daniel Ares Cabo
+ * Método para seleccionar un proyecto concreto
+ */
 @RestController
 @RequestMapping("/api")
 @CrossOrigin("*")
+
 public class SelPrController {
 
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
@@ -32,6 +37,9 @@ public class SelPrController {
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
     @GetMapping(value="/proyectos/{idProyecto}", produces = { MediaType.APPLICATION_JSON_VALUE})
+    /**
+     * Este endpoint consulta un id de proyecto existente en la base de datos para saber toda la información de dicho proyecto
+     */
     public ProyectoDTO consultarProyecto(@PathVariable int idProyecto) {
 
         Proyecto proyecto = proyectoDAO.consultar(idProyecto);
