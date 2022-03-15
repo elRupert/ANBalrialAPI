@@ -37,7 +37,7 @@ public class ShoPrController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema") })
-    @GetMapping(value = "/proyectos", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    @GetMapping(value = "/proyectos", produces = { MediaType.APPLICATION_JSON_VALUE })
     public List<ProyectoDTO> listarProyectos () throws ParseException {
 
 

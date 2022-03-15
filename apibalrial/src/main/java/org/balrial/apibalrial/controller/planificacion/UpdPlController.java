@@ -8,6 +8,7 @@ import org.balrial.dao.planificacion.PlanificacionDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.Planificacion;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class UpdPlController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @PutMapping("/planificaciones")
+    @PutMapping(value="/planificaciones", produces = { MediaType.APPLICATION_JSON_VALUE})
     public void actualizarPlanificacion(@RequestBody PlanificacionDTO planificacionDTO) {
 
         Planificacion planificacion = planificacionDAO.consultar(planificacionDTO.getId());

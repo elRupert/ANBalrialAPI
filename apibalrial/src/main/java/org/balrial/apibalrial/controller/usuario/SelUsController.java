@@ -12,6 +12,7 @@ import org.balrial.factory.DAOFactory;
 import org.balrial.model.Rol;
 import org.balrial.model.Usuario;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -62,7 +63,7 @@ public class SelUsController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @GetMapping("/usuarios/{id}/roles")
+    @GetMapping(value="/usuarios/{id}/roles", produces = { MediaType.APPLICATION_JSON_VALUE})
     /**
      * Este endpoint consulta los roles de un id de usuario existente en la base de datos
      */

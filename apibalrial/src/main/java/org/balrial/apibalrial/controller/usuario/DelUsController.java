@@ -7,6 +7,7 @@ import org.balrial.dao.usuario.UsuarioDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.Usuario;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -31,7 +32,7 @@ public class DelUsController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @DeleteMapping("/usuarios/{id}")
+    @DeleteMapping(value="/usuarios/{id}", produces = { MediaType.APPLICATION_JSON_VALUE})
     public void elminarUsuario(@PathVariable int id) throws SQLException {
 
         Usuario usuario = usuarioDAO.consultar(id);

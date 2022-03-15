@@ -13,6 +13,7 @@ import org.balrial.factory.DAOFactory;
 import org.balrial.model.Proyecto;
 import org.balrial.model.Usuario;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -36,7 +37,7 @@ public class InsPrController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @PostMapping("/proyectos")
+    @PostMapping(value="/proyectos", produces = { MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<ProyectoDTO> insertarProyecto(@RequestBody ProyectoDTO dto) throws Exception {
 
         Proyecto proyecto = ProyectoAssembler.pasearDesdeDTO(dto);

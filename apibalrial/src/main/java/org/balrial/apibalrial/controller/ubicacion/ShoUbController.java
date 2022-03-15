@@ -9,6 +9,7 @@ import org.balrial.apibalrial.dto.assembler.UbicacionAssembler;
 import org.balrial.dao.ubicacion.UbicacionDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.Ubicacion;
+import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -37,7 +38,7 @@ public class ShoUbController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @GetMapping("/ubicaciones")
+    @GetMapping(value="/ubicaciones", produces = { MediaType.APPLICATION_JSON_VALUE})
     public List<UbicacionDTO> listarUbicaciones() {
 
         List<Ubicacion> lista = ubicacionDAO.listar();
