@@ -6,15 +6,13 @@ import io.swagger.annotations.ApiResponses;
 import org.balrial.dao.proyecto.ProyectoDAO;
 import org.balrial.factory.DAOFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 /**
  *
  */

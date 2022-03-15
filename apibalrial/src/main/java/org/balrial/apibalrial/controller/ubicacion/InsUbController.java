@@ -14,13 +14,11 @@ import org.balrial.model.Ubicacion;
 import org.balrial.model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class InsUbController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private UbicacionDAO ubicacionDAO = factory.getUbicacionDAO();
@@ -39,7 +37,6 @@ public class InsUbController {
     public ResponseEntity<UbicacionDTO> insertarUbicacion(@RequestBody UbicacionDTO dto) throws Exception {
 
         Ubicacion ubicacion = UbicacionAssembler.pasearDesdeDTO(dto);
-        ubicacion.setNombre(ubicacion.getNombre());
 
         ubicacionDAO.insertar(ubicacion);
 

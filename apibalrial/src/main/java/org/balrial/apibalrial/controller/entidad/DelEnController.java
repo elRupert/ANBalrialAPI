@@ -8,10 +8,7 @@ import org.balrial.factory.DAOFactory;
 import org.balrial.model.Entidad;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 /**
@@ -20,6 +17,7 @@ import org.springframework.web.server.ResponseStatusException;
  */
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class DelEnController {
 
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);

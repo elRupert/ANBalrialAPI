@@ -11,6 +11,7 @@ import org.balrial.factory.DAOFactory;
 
 import org.balrial.model.TurnoProyecto;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -20,6 +21,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class ShoTuPrController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private TurnoProyectoDAO turnoProyectoDAO = factory.getTurnoProyectoDAO();

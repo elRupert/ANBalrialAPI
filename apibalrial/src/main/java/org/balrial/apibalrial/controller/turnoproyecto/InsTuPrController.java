@@ -14,13 +14,11 @@ import org.balrial.model.TurnoProyecto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class InsTuPrController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private TurnoProyectoDAO turnoProyectoDAO = factory.getTurnoProyectoDAO();
@@ -39,7 +37,6 @@ public class InsTuPrController {
     public ResponseEntity<TurnoProyectoDTO> insertarTurnoProyecto(@RequestBody TurnoProyectoDTO dto) throws Exception {
 
         TurnoProyecto turnoProyecto = TurnoProyectoAssembler.pasearDesdeDTO(dto);
-
 
         turnoProyectoDAO.insertar(turnoProyecto);
 

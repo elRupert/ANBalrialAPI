@@ -10,10 +10,7 @@ import org.balrial.factory.DAOFactory;
 import org.balrial.model.FechaProyecto;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @author LuciaRguez
@@ -22,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class InsFecPrController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private FechaProyectoDAO fechaProyectoDAO = factory.getFechaProyectoDao();
@@ -40,7 +38,6 @@ public class InsFecPrController {
     public ResponseEntity<FechaProyectoDTO> insertarFechaProyecto(@RequestBody FechaProyectoDTO dto) throws Exception {
 
         FechaProyecto fechaProyecto = FechaProyectoAssembler.pasearDesdeDTO(dto);
-        fechaProyecto.setFecha(fechaProyecto.getFecha());
 
         fechaProyectoDAO.insertar(fechaProyecto);
 

@@ -9,16 +9,14 @@ import org.balrial.factory.DAOFactory;
 import org.balrial.model.Planificacion;
 import org.balrial.model.Proyecto;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.sql.SQLException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class DelPlController {
 
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);

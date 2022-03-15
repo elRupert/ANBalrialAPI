@@ -14,13 +14,11 @@ import org.balrial.model.Planificacion;
 import org.balrial.model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class InsPlController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private PlanificacionDAO planificacionDAO = factory.getPlanificacionDAO();

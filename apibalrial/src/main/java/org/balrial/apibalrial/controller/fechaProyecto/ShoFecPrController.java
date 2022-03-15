@@ -11,6 +11,7 @@ import org.balrial.dao.fechaProyecto.FechaProyectoDAO;
 import org.balrial.factory.DAOFactory;
 import org.balrial.model.FechaProyecto;
 import org.balrial.model.Usuario;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +27,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class ShoFecPrController {
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
     private FechaProyectoDAO fechaProyectoDAO = factory.getFechaProyectoDao();

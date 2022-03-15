@@ -15,7 +15,7 @@ import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api")
-
+@CrossOrigin("*")
 public class SelPlController {
 
         private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);

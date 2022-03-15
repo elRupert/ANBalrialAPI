@@ -14,13 +14,11 @@ import org.balrial.model.Entidad;
 import org.balrial.model.Usuario;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class InsEnController {
 
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
@@ -40,7 +38,6 @@ public class InsEnController {
     public ResponseEntity<EntidadDTO> insertarEntidad(@RequestBody EntidadDTO dto) throws Exception {
 
         Entidad entidad = EntidadAssembler.pasearDesdeDTO(dto);
-        entidad.setNombre("");
 
         entidadDAO.insertar(entidad);
 

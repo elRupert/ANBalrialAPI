@@ -9,14 +9,12 @@ import org.balrial.factory.DAOFactory;
 import org.balrial.model.Planificacion;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin("*")
 public class UpdPlController {
 
     private DAOFactory factory = DAOFactory.getDAOFactory(DAOFactory.ORM);
@@ -32,8 +30,13 @@ public class UpdPlController {
             @ApiResponse(code = 403, message = "No se poseen los permisos necesarios para la solicitud, por lo que se rechaza la misma."),
             @ApiResponse(code = 404, message = "El servidor no puede encontrar el contenido solicitado."),
             @ApiResponse(code = 500, message = "Error inesperado del sistema")})
-    @PutMapping(value="/planificaciones", produces = { MediaType.APPLICATION_JSON_VALUE})
-    public void actualizarPlanificacion(@RequestBody PlanificacionDTO planificacionDTO) {
+    @PutMapping(value="/planificaciones/{id}", produces = { MediaType.APPLICATION_JSON_VALUE})
+    public void actualizarPlanificacion(@PathVariable int id, @RequestBody PlanificacionDTO planificacionDTO) {
+
+        // Verificamos si el id de la url coincide con el del objeto a modificar
+        if (planificacionDTO.getId()!=id) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "El identificador no coincide");
+        }
 
         Planificacion planificacion = planificacionDAO.consultar(planificacionDTO.getId());
 

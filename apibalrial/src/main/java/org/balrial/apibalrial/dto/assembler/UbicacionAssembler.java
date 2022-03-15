@@ -10,6 +10,7 @@ public class UbicacionAssembler {
         UbicacionDTO dto = new UbicacionDTO();
 
         dto.setId(obj.getId());
+        dto.setIdEntidad(obj.getIdEntidad());
         dto.setNombre(obj.getNombre());
         dto.setDireccion(obj.getDireccion());
         dto.setCp(obj.getCp());
@@ -27,6 +28,7 @@ public class UbicacionAssembler {
         Ubicacion obj = new Ubicacion();
 
         obj.setId(dto.getId());
+        obj.setIdEntidad(dto.getIdEntidad());
         obj.setNombre(dto.getNombre());
         obj.setDireccion(dto.getDireccion());
         obj.setCp(dto.getCp());

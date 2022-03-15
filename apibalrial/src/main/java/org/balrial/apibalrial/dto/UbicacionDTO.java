@@ -14,6 +14,7 @@ import java.io.Serializable;
 public class UbicacionDTO implements Serializable {
 
     private Integer id;
+    private Integer idEntidad;
     private String nombre;
     private String direccion;
     private Integer cp;
